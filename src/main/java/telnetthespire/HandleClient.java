@@ -51,25 +51,25 @@ class  HandleClient extends Thread {
 	    String coordinates = "(x=" + String.valueOf(node.x) + ", y=" + String.valueOf(node.y) + ") ";
 	    switch(nodeSymbol) {
 	    case "M":
-		nodeSymbol = "Enemy";
+		nodeSymbol = "적";
 		break;
 	    case "E":
 		if(node.hasEmeraldKey)
-		    nodeSymbol = "Flaming elite";
+		    nodeSymbol = "불타는 엘리트";
 		else
-		    nodeSymbol = "Elite";
+		    nodeSymbol = "엘리트";
 		break;
 	    case "$":
-		nodeSymbol = "Merchant";
+		nodeSymbol = "상점";
 		break;
 	    case "T":
-		nodeSymbol = "Treasure";
+		nodeSymbol = "보물";
 		break;
 	    case "R":
-		nodeSymbol = "Rest";
+		nodeSymbol = "휴식";
 		break;
 	    case "?":
-		nodeSymbol = "Unknown";
+		nodeSymbol = "?";
 	    }
             choices.add(coordinates + nodeSymbol);
         }
@@ -145,7 +145,7 @@ class  HandleClient extends Thread {
 	}
 	int i = 1;
 	String coordinates = "(x=" + String.valueOf(nodeStack.peek().x) + ", y=" + String.valueOf(nodeStack.peek().y) + ")";
-	sendMessage("Current room: " + coordinates);
+	sendMessage("현재 위치: " + coordinates);
 	for(String room: getMapScreenChoices()) {
 	    sendMessage("\t" + String.valueOf(i) + ": " + room);
 	    i += 1;
